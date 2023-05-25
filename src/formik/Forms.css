@@ -1,121 +1,30 @@
-* {
-  background-color: black;
-}
-
-.form-container {
-  width: 550px;
-  height: 478px;
-  margin: 4rem auto;
-  padding: 20px;
-  border-radius: 8px;
-  background-color: black;
-  color: #9fe9ff;
-  transition: 0.3s;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: none;
-  outline: none;
-  box-shadow: rgb(244, 158, 152) 0px 2px 4px 0px,
-    rgb(255, 137, 137) 0px 2px 16px 0px;
-}
-
-.form-container:hover {
-  transition: 0.4s;
-  box-shadow: rgb(223, 152, 244) 0px 2px 4px 0px,
-    rgb(137, 241, 255) 0px 2px 16px 0px;
-}
-
-.form {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  border: none;
-  outline: none;
-  align-items: center;
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-input,
-textarea {
-  width: 90%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-}
-
-.submit-btn {
-  background-color: rgb(37, 140, 29);
-  padding: 0.6em;
-  font-size: 1.2rem;
-  color: #fff;
-  border-radius: 2rem;
-  border: none;
-  transition: 0.3s;
-  margin-top: 0.4rem;
-  font-weight: 600;
-}
-
-.submit-btn:hover {
-  background-color: rgb(61, 205, 61);
-  transition: 0.4s;
-}
-
-.input-error {
-  border-color: red;
-}
-
-.error-message {
-  color: red;
-  margin-top: 0.1rem;
-}
-
-.form-image {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100px;
-  margin-bottom: 1rem;
-}
-
-.form-image img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-@media screen and (max-width: 768px) {
-  .form-container {
-    width: 80%;
-    margin: 3rem auto;
-    padding: 15px;
-    height: 475px;
-    flex-direction: column;
-    align-items: center;
+.input-container {
+    margin-bottom: 10px;
   }
-
-  .form {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+  
+  .input-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .input-container input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+  }
+  
+  .input-container button {
+    padding: 8px 16px;
+    background-color: #4caf50;
+    color: #fff;
     border: none;
-    outline: none;
-    margin-top: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
   }
-  .form-image {
-    margin-right: 0;
-    margin-top: -0.9rem;
+  
+  .input-container button:hover {
+    background-color: #45a049;
   }
-}
+  

@@ -3,12 +3,15 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import "@fortawesome/fontawesome-free/css/all.css";
-import Forms from "./formik/Forms";
+import Validation from "./formik/Validation";
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root
   .render(
-   <Forms/>
+  <BrowserRouter>
+   <Validation/>
+  </BrowserRouter>
   );
 
 // If you want to start measuring performance in your app, pass a function

@@ -1,90 +1,69 @@
-import React, { useState, useEffect } from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
-import "./Forms.css";
-import image from "../formik/night-1.jpg";
 
-const validationSchema = Yup.object().shape({
-  name: Yup.string().required("Name is required"),
-  email: Yup.string().email("Invalid email").required("Email is required"),
-  country: Yup.string().required("Country is required"),
-});
+import React, { useState } from 'react';
+import './Forms.css';
 
-const Forms = () => {
-  const initialValues = {
-    name: "",
-    email: "",
-    country: "",
+const Forms = ({ addAuthor }) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    age: '',
+    city: '',
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((data) => ({
+      ...data,
+      [name]: value,
+    }));
   };
 
-  const [showForm, setShowForm] = useState(false);
+  const formHandle = (e) => {
+    e.preventDefault();
+    if (!formData.name || !formData.age || !formData.city) {
+      alert('Please fill out this form!!!');
+      return;
+    }
 
-  useEffect(() => {
-    setShowForm(true);
-  }, []);
+    const newData = { ...formData };
+    addAuthor(newData);
 
-  const handleSubmit = (values, { resetForm }) => {
-    console.log(values); // Display form data in the console
-    resetForm();
+    setFormData({
+      name: '',
+      age: '',
+      city: '',
+    });
   };
 
   return (
-    <div className="form-container slide-in-from-left">
-      <div className="form-image">
-        <h1>Formik</h1>
-        <img src={image} alt="Form Image" />
-      </div>
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={handleSubmit}
-      >
-        <Form className={`form ${showForm ? "fade-in" : ""}`}>
-          <div className="form-group">
-            <label htmlFor="name">Name</label>
-            <Field type="text" id="name" name="name" className="form-control" />
-            <ErrorMessage
-              name="name"
-              component="div"
-              className="error-message"
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <Field
-              type="text"
-              id="email"
-              name="email"
-              className="form-control"
-            />
-            <ErrorMessage
-              name="email"
-              component="div"
-              className="error-message"
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="country">Country</label>
-            <Field
-              type="text"
-              id="country"
-              name="country"
-              className="form-control"
-            />
-            <ErrorMessage
-              name="country"
-              component="div"
-              className="error-message"
-            />
-          </div>
-
-          <button type="submit" className="submit-btn">
-            Submit
-          </button>
-        </Form>
-      </Formik>
+    <div className="input-container">
+      <h2>Add Author</h2>
+      <form onSubmit={formHandle}>
+        <label>Name</label>
+        <input
+          type="text"
+          value={formData.name}
+          name="name"
+          onChange={handleChange}
+        />
+        <br />
+        <label>Age</label>
+        <input
+          type="text"
+          value={formData.age}
+          name="age"
+          onChange={handleChange}
+        />
+        <br />
+        <label>City</label>
+        <input
+          type="text"
+          value={formData.city}
+          name="city"
+          onChange={handleChange}
+        />
+        <br />
+        <button type="submit">Submit</button>
+      </form>
     </div>
   );
 };
