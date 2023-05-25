@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import "./Forms.css";
-import image from './night-1.jpg'
+import image from '../formik/night-1.jpg'
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required("Name is required"),
@@ -31,7 +31,7 @@ const Forms = () => {
   return (
     <div className="form-container slide-in-from-left">
          <div className="form-image">
-        <img src={image} alt="Form Image" />
+        <img src={image}alt="Form Image" />
       </div>
       <Formik
         initialValues={initialValues}
