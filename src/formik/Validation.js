@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink, Route, Routes } from 'react-router-dom';
 import Forms from './Forms';
-import { v4 as uuidv4 } from 'uuid';
 import FormSubmission from './FormSubmission';
 import './Validation.css';
 
@@ -14,7 +13,7 @@ const Validation = () => {
   });
 
   const addAuthor = (newAuthor) => {
-    const updatedAuthor = { ...newAuthor, id: uuidv4() };
+    const updatedAuthor = { ...newAuthor, id: authors.length  };
     setAuthors((prevAuthors) => [...prevAuthors, updatedAuthor]);
     setFormData({
       name: '',
