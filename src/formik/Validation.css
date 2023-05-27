@@ -11,8 +11,19 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
   
+  .main {
+    color: rgb(0, 128, 255);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 1rem;
+    border-top-left-radius: 1.4rem;
+    border-bottom-right-radius: 2rem ;
+    background-color: rgba(0, 128, 255, 0.2);
+  }
+
+  
+
   h2 {
-    color: #333;
+    color: #083617;
   }
   
   .nav-link {

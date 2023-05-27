@@ -34,7 +34,7 @@ const Validation = () => {
 
   return (
     <div  className="container">
-      <h2>Admin Dashboard</h2>
+      <h2 className='main'>Admin Dashboard</h2>
       <div className="nav-links">
         <NavLink to="/" className="nav-link" activeClassName="active">
           Forms

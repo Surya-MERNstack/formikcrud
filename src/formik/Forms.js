@@ -61,7 +61,7 @@ const Forms = ({ addAuthor }) => {
           name="city"
           onChange={handleChange}
         />
-        <br />
+        <br /><br/>
         <button type="submit">Submit</button>
       </form>
     </div>

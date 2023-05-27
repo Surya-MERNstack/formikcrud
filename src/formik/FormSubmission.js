@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
-import './FormSubmission.css';
+import React, { useState } from "react";
+import "./FormSubmission.css";
 
 const FormSubmission = ({ data, deleteAuthor, editAuthor }) => {
   const [editMode, setEditMode] = useState(false);
-  const [editData, setEditData] = useState({ id: '', name: '', age: '', city: '' });
+  const [editData, setEditData] = useState({
+    id: "",
+    name: "",
+    age: "",
+    city: "",
+  });
 
   const handleEdit = (author) => {
     setEditMode(true);
@@ -13,12 +18,12 @@ const FormSubmission = ({ data, deleteAuthor, editAuthor }) => {
   const handleSave = () => {
     editAuthor(editData.id, editData);
     setEditMode(false);
-    setEditData({ id: '', name: '', age: '', city: '' });
+    setEditData({ id: "", name: "", age: "", city: "" });
   };
 
   const handleCancel = () => {
     setEditMode(false);
-    setEditData({ id: '', name: '', age: '', city: '' });
+    setEditData({ id: "", name: "", age: "", city: "" });
   };
 
   const handleChange = (e, id) => {
@@ -41,6 +46,7 @@ const FormSubmission = ({ data, deleteAuthor, editAuthor }) => {
         <table>
           <thead>
             <tr>
+              <th>ID</th>
               <th>Title</th>
               <th>Author</th>
               <th>Content</th>
@@ -49,15 +55,51 @@ const FormSubmission = ({ data, deleteAuthor, editAuthor }) => {
           </thead>
           <tbody>
             {data.map((item) => (
-              <tr key={item.id}>
-                <td>{editMode && editData.id === item.id ? <input type="text" name="name" value={editData.name} onChange={(e) => handleChange(e, item.id)} /> : item.name}</td>
-                <td>{editMode && editData.id === item.id ? <input type="text" name="age" value={editData.age} onChange={(e) => handleChange(e, item.id)} /> : item.age}</td>
-                <td>{editMode && editData.id === item.id ? <input type="text" name="city" value={editData.city} onChange={(e) => handleChange(e, item.id)} /> : item.city}</td>
+              <tr key={item.id }>
+                <td>{item.id + 1}</td>
+                <td>
+                  {editMode && editData.id === item.id ? (
+                    <input
+                      type="text"
+                      name="name"
+                      value={editData.name}
+                      onChange={(e) => handleChange(e, item.id)}
+                    />
+                  ) : (
+                    item.name
+                  )}
+                </td>
+                <td>
+                  {editMode && editData.id === item.id ? (
+                    <input
+                      type="text"
+                      name="age"
+                      value={editData.age}
+                      onChange={(e) => handleChange(e, item.id)}
+                    />
+                  ) : (
+                    item.age
+                  )}
+                </td>
+                <td>
+                  {editMode && editData.id === item.id ? (
+                    <input
+                      type="text"
+                      name="city"
+                      value={editData.city}
+                      onChange={(e) => handleChange(e, item.id)}
+                    />
+                  ) : (
+                    item.city
+                  )}
+                </td>
                 <td>
                   {!editMode && (
                     <>
                       <button onClick={() => handleEdit(item)}>Edit</button>{" "}
-                      <button onClick={() => deleteAuthor(item.id)}>Delete</button>
+                      <button onClick={() => deleteAuthor(item.id)}>
+                        Delete
+                      </button>
                     </>
                   )}
                   {editMode && editData.id === item.id && (
