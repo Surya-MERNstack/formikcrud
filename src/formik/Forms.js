@@ -38,7 +38,7 @@ const Forms = ({ addAuthor }) => {
     <div className="input-container">
       <h2>Add Author</h2>
       <form onSubmit={formHandle}>
-        <label>Name</label>
+        <label>Title</label>
         <input
           type="text"
           value={formData.name}
@@ -46,7 +46,7 @@ const Forms = ({ addAuthor }) => {
           onChange={handleChange}
         />
         <br />
-        <label>Age</label>
+        <label>Author</label>
         <input
           type="text"
           value={formData.age}
@@ -54,7 +54,7 @@ const Forms = ({ addAuthor }) => {
           onChange={handleChange}
         />
         <br />
-        <label>City</label>
+        <label>Content</label>
         <input
           type="text"
           value={formData.city}

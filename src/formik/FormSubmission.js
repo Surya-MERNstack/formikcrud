@@ -41,9 +41,9 @@ const FormSubmission = ({ data, deleteAuthor, editAuthor }) => {
         <table>
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Age</th>
-              <th>City</th>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Content</th>
               <th>Actions</th>
             </tr>
           </thead>
